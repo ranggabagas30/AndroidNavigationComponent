@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+            app:destination="@+id/viewTransactionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_myDialogFragment"
+            app:destination="@+id/myDialogFragment">
+            <argument android:name="title" android:defaultValue="Title"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/chooseRecipientFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.ChooseRecipientFragment"
+        android:label="Choose Recipient"
+        tools:layout="@layout/fragment_choose_recipient" >
+        <action
+            android:id="@+id/action_chooseRecipientFragment_to_specifyAmountFragment"
+            app:destination="@id/specifyAmountFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.ConfirmationFragment"
+        android:label="Confirmation"
+        tools:layout="@layout/fragment_confirmation">
+        <action
+            android:id="@+id/action_confirmationFragment_to_main3Activity"
+            app:destination="@+id/main3Activity"/>
+        <action
+            android:id="@+id/action_confirmationFragment_to_main2Activity"
+            app:destination="@+id/main2Activity"/>
+        <argument
+            android:name="amountReceived"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
+    <activity
+        android:id="@+id/main3Activity"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.Main3Activity"/>
+    <activity
+        android:id="@+id/main2Activity"
+        android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.Main2Activity"/>
+    <fragment
+        android:id="@+id/specifyAmountFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.SpecifyAmountFragment"
+        android:label="Specify Amount"
+        tools:layout="@layout/fragment_specify_amount" >
+        <action
+            android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.ViewBalanceFragment"
+        android:label="View Balance"
+        tools:layout="@layout/fragment_view_balance" />
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.excercise.androidnavigationcomponent.simplenavigation.ViewTransactionFragment"
+        android:label="View Transaction"
+        tools:layout="@layout/fragment_view_transaction" />
+    <dialog
+        android:id="@+id/myDialogFragment"
+        android:name="com.excercise.androidnavigationcomponent.dialog.MyDialogFragment"
+        android:label="My Dialog"/>
+</navigation>

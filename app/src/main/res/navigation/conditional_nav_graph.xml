@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conditional_nav_graph"
+    app:startDestination="@id/main2_fragment">
+
+    <fragment
+        android:id="@+id/main2_fragment"
+        android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.Main2Fragment"
+        android:label="fragment_main2"
+        tools:layout="@layout/fragment_main2" >
+        <action
+            android:id="@+id/action_main2Fragment_to_profileFragment"
+            app:destination="@id/profile_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registration_graph"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profile_fragment"
+        android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <navigation
+        android:id="@+id/registration_graph"
+        app:startDestination="@id/enter_user_profile_fragment">
+        <fragment
+            android:id="@+id/enter_user_profile_fragment"
+            android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.registration.EnterUserProfileInfoFragment"
+            android:label="Enter profile data"
+            tools:layout="@layout/fragment_enter_user_profile_info">
+            <action
+                android:id="@+id/move_to_choose_user_password"
+                app:destination="@id/choose_user_password_fragment"/>
+        </fragment>
+
+        <fragment
+            android:id="@+id/choose_user_password_fragment"
+            android:name="com.excercise.androidnavigationcomponent.conditionalnavigation.registration.ChooseUserPasswordFragment"
+            android:label="Choose user + password"
+            tools:layout="@layout/fragment_choose_user_password"/>
+    </navigation>
+</navigation>
